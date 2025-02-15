@@ -1,7 +1,8 @@
 from random import *
+import os
 from todoist_api_python.api import TodoistAPI
 
-api = TodoistAPI("REDACTED")
+api = TodoistAPI(os.environ['TODOIST_KEY'])
 
 workout_config = {
     "Legs, Butt and Calf": {
@@ -121,7 +122,7 @@ for category in selected_categories:
         workout_config["_meta"]["reps"]["minReps"],
         workout_config["_meta"]["reps"]["maxReps"] + 1,
     )
-    lbs = int(input(f"{workout} {sets}x{reps} lbs? "))
+    lbs = choice([15, 20])
     selected_workouts.append(
         {
             "category": category,
@@ -134,7 +135,7 @@ for category in selected_categories:
 
 for work_arr in selected_workouts:
     subtask = api.add_task(
-        content=f"{work_arr['workout']}: {work_arr['sets']}x{work_arr['reps']} @ {work_arr['pounds']}",
+        content=f"{work_arr['workout']}: {work_arr['sets']}x{work_arr['reps']} @ {work_arr['pounds']}lbs",
         due_string="today",
         labels=["health"],
         parent_id=task.id,

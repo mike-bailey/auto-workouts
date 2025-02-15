@@ -5,10 +5,12 @@ jobs:
   install-and-get-rolling:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up python 3.10
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.10
+          python-version: '3.13'
       - run: pip install todoist-api-python
       - run: python3 main.py
+        env:
+          TODOIST_KEY: ${{ secrets.TODOIST_KEY }}

@@ -3,7 +3,7 @@ import os
 from todoist_api_python.api import TodoistAPI
 
 api = TodoistAPI(os.environ["TODOIST_KEY"])
-
+print(os.environ["TODOIST_KEY"][0])
 workout_config = {
     "Legs, Butt and Calf": {
         "workouts": [

@@ -1,6 +1,9 @@
 name: add-to-todoist
 run-name: ${{ github.actor }} Gets Swole
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * *"
 jobs:
   install-and-get-rolling:
     runs-on: ubuntu-latest

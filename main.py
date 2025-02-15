@@ -3,7 +3,7 @@ import os
 from todoist_api_python.api import TodoistAPI
 
 api = TodoistAPI(os.environ["TODOIST_KEY"])
-print(os.environ["TODOIST_KEY"][0])
+
 workout_config = {
     "Legs, Butt and Calf": {
         "workouts": [
@@ -95,7 +95,13 @@ while len(selected_categories) < workouts:
 
 
 try:
-    task = api.add_task(content="Workout", due_string="today")
+    task = api.add_task(
+        content="🏃Workout and 🚿Shower",
+        description="Workout, either 10k steps, cardio or weights. Weight workout attached for reference.",
+        labels=["health"],
+        priority=4,
+        due_string="today",
+    )
     new_comment = api.add_comment(
         task_id=task.id,
         content="Workout reference",

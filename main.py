@@ -2,7 +2,7 @@ from random import *
 import os
 from todoist_api_python.api import TodoistAPI
 
-api = TodoistAPI(os.environ['TODOIST_KEY'])
+api = TodoistAPI(os.environ["TODOIST_KEY"])
 
 workout_config = {
     "Legs, Butt and Calf": {

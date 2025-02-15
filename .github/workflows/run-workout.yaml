@@ -1,0 +1,14 @@
+name: add-to-todoist
+run-name: ${{ github.actor }} Gets Swole
+on: [workflow_dispatch]
+jobs:
+  install-and-get-rolling:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+      - run: pip install todoist-api-python
+      - run: python3 main.py

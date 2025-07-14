@@ -147,7 +147,7 @@ for work_arr in selected_workouts:
         parent_id=task.id,
         priority=1,
     )
-    img = work_arr['workout'].lower().replace(' ', '-')
+    img = work_arr['workout'].lower().replace(' ', '_')
     try:
         new_comment = api.add_comment(
             task_id=subtask.id,

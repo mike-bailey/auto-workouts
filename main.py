@@ -147,3 +147,17 @@ for work_arr in selected_workouts:
         parent_id=task.id,
         priority=1,
     )
+    img = work_arr['workout'].lower().replace(' ', '-')
+    try:
+        new_comment = api.add_comment(
+            task_id=subtask.id,
+            content="Specific workout",
+            attachment={
+                "resource_type": "file",
+                "file_url": f"https://raw.githubusercontent.com/mike-bailey/auto-workouts/refs/heads/main/img/{img}.png",
+                "file_type": "image/png",
+                "file_name": f"{img}.png",
+            },
+        )
+    except:
+        print(f"Missing workout image: {img}.png")

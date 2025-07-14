@@ -145,5 +145,5 @@ for work_arr in selected_workouts:
         due_string="today",
         labels=["health"],
         parent_id=task.id,
-        priority=2,
+        priority=1,
     )

@@ -161,3 +161,14 @@ for work_arr in selected_workouts:
         )
     except:
         print(f"Missing workout image: {img}.png")
+
+    
+    # Add a subtask for each rep
+    for rep in range(1, work_arr['reps'] + 1):
+        api.add_task(
+            content=f"Rep {rep}",
+            due_string="today",
+            labels=["health"],
+            parent_id=subtask.id,
+            priority=1,
+        )

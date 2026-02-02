@@ -164,9 +164,9 @@ for work_arr in selected_workouts:
 
     
     # Add a subtask for each rep
-    for rep in range(1, work_arr['reps'] + 1):
+    for rep in range(1, work_arr['sets'] + 1):
         api.add_task(
-            content=f"Rep {rep}",
+            content=f"Set {rep}",
             due_string="today",
             labels=["health"],
             parent_id=subtask.id,

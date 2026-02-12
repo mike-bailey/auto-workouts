@@ -99,7 +99,7 @@ try:
         content="🏃Workout and 🚿Shower",
         description="Workout, either 10k steps, cardio or weights. Weight workout attached for reference.",
         labels=["health"],
-        priority=4,
+        priority=3,
         due_string="today",
     )
     new_comment = api.add_comment(
@@ -161,14 +161,3 @@ for work_arr in selected_workouts:
         )
     except:
         print(f"Missing workout image: {img}.png")
-
-    
-    # Add a subtask for each rep
-    for rep in range(1, work_arr['sets'] + 1):
-        api.add_task(
-            content=f"Set {rep}",
-            due_string="today",
-            labels=["health"],
-            parent_id=subtask.id,
-            priority=1,
-        )
